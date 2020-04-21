@@ -5,16 +5,18 @@ const fs = require('fs');
 const app = express();
 const mysql = require("mysql");
 
-/*
-var conn = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "minggu7_soa_senin"
+require('dotenv').config();
+
+const conn = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME
 });
 
-const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
-*/
+//const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
+
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 //app.use(morgan('dev', { stream: accessLogStream }));
