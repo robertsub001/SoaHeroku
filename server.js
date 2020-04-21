@@ -5,6 +5,7 @@ const fs = require('fs');
 const app = express();
 const mysql = require("mysql");
 
+/*
 var conn = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -13,10 +14,10 @@ var conn = mysql.createConnection({
 });
 
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
-
+*/
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-app.use(morgan('dev', { stream: accessLogStream }));
+//app.use(morgan('dev', { stream: accessLogStream }));
 
 app.post("/api/registerUser",(req,res)=>{
     let email = req.body.email;
