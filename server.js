@@ -103,6 +103,10 @@ app.post("/api/addLaporan",(req,res)=>{
     }
 })
 
+app.get("/api/halo",(req,res)=>{
+	res.send({"Message": "halo","Type" : "JSON"});
+})
+
 app.get("/api/getKelurahan",(req,res)=>{
     let apikey = req.query.apiKey;
     let zipcode = req.query.zip_code;
